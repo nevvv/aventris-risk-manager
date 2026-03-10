@@ -7,21 +7,6 @@ import { z } from "zod";
 // Dynamically import yahoo-finance2 since it's an ESM module
 let yahooFinance: any;
 
-const TOP_EQUITIES = [
-  "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA", "BRK-B", "AVGO", "V",
-  "JPM", "UNH", "LLY", "MA", "JNJ", "HD", "PG", "XOM", "COST", "MRK", "ABBV", 
-  "CRM", "ASML", "PEP", "BAC", "KO", "WMT", "TMO", "MCD", "CSCO", "ABT", "ACN", 
-  "NFLX", "AMD", "ORCL", "LIN", "NKE", "CMCSA", "DHR", "INTC", "TXN", "VZ", 
-  "NEE", "QCOM", "PFE", "PM", "RTX", "HON", "IBM"
-];
-
-const TOP_CRYPTO = [
-  "BTC-USD", "ETH-USD", "USDT-USD", "BNB-USD", "SOL-USD", "XRP-USD",
-  "USDC-USD", "ADA-USD", "AVAX-USD", "DOGE-USD", "DOT-USD", "TRX-USD", 
-  "LINK-USD", "MATIC-USD", "SHIB-USD"
-];
-
-const ALLOWED_SYMBOLS = [...TOP_EQUITIES, ...TOP_CRYPTO];
 
 async function seedDatabase() {
   const existingAssets = await storage.getAssets();
@@ -69,7 +54,7 @@ export async function registerRoutes(
 
   // Seed database with mock data if empty
   seedDatabase().catch(console.error);
-  
+
   app.get(api.assets.list.path, async (req, res) => {
     const allAssets = await storage.getAssets();
     res.status(200).json(allAssets);
@@ -109,19 +94,19 @@ export async function registerRoutes(
   app.get(api.market.search.path, async (req, res) => {
     const query = req.query.q?.toString().toLowerCase();
     if (!query) return res.json([]);
-    
+
     try {
       if (!yahooFinance) {
         return res.json([]);
       }
       const results = await yahooFinance.search(query);
       const filtered = (results?.quotes || [])
-        .filter((q: any) => q.symbol && (ALLOWED_SYMBOLS.includes(q.symbol) || q.quoteType === "CRYPTOCURRENCY" || q.quoteType === "EQUITY"))
+        .filter((q: any) => q.symbol && (q.quoteType === "CRYPTOCURRENCY" || q.quoteType === "EQUITY" || q.quoteType === "ETF"))
         .slice(0, 10)
         .map((q: any) => ({
           symbol: q.symbol,
           name: q.shortname || q.longname || q.symbol,
-          type: q.quoteType === "CRYPTOCURRENCY" ? "crypto" : "stock",
+          type: q.quoteType === "CRYPTOCURRENCY" ? "crypto" : q.quoteType === "ETF" ? "etf" : "stock",
         }));
       res.json(filtered);
     } catch (err) {
@@ -157,7 +142,7 @@ export async function registerRoutes(
   app.get(api.analytics.get.path, async (req, res) => {
     try {
       const allAssets = await storage.getAssets();
-      
+
       let totalValue = 0;
       let liquidValue = 0;
       let illiquidValue = 0;
@@ -168,24 +153,24 @@ export async function registerRoutes(
       for (const asset of allAssets) {
         const val = Number(asset.value) || 0;
         totalValue += val;
-        
+
         const aClass = asset.assetType || 'unknown';
         byAssetClass[aClass] = (byAssetClass[aClass] || 0) + val;
-        
+
         if (['stock', 'etf', 'crypto', 'cash'].includes(aClass)) {
           liquidValue += val;
         } else {
           illiquidValue += val;
         }
-        
+
         const sector = asset.sector || 'Uncategorized';
         bySector[sector] = (bySector[sector] || 0) + val;
-        
+
         if (sector.toLowerCase().includes('technology')) {
           techExposure += val;
         }
       }
-      
+
       const liquidityRatio = totalValue > 0 ? liquidValue / totalValue : 0;
       const numAssetClasses = Object.keys(byAssetClass).length;
       const maxSectorConcentration = Object.values(bySector).length > 0 
@@ -196,12 +181,12 @@ export async function registerRoutes(
         (1 - maxSectorConcentration) * 100 * (numAssetClasses > 1 ? 1 : 0.6);
       if (numAssetClasses > 2) diversificationScore += 10;
       diversificationScore = Math.round(Math.min(100, Math.max(0, diversificationScore)));
-      
+
       const liquidityScore = Math.round(Math.min(100, Math.max(0, liquidityRatio * 100)));
-      
+
       const cryptoExposure = (byAssetClass['crypto'] || 0) / (totalValue || 1);
       const riskExposureScore = Math.round(Math.min(100, (cryptoExposure * 150) + (techExposure / (totalValue || 1) * 80)));
-      
+
       const healthScore = totalValue === 0 ? 0 :
         Math.round((diversificationScore + liquidityScore + (100 - riskExposureScore)) / 3);
 
