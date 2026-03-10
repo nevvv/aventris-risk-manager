@@ -1,0 +1,6 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K5:00:56 PM [express] serving on port 5000
+5:01:01 PM [express] GET /api/analytics 304 in 4ms :: {"totalValue":35000,"healthScore":66,"diversificationScore":67,"liquidityScore":100,"riskExposureScore":69,"composition":{"byAssetClass":{"stock":15000,"crypto":8000,"cash":12000},"bySector":{"Technology":15000,"Cryptocurrency":8000,"Cash":12000}},"liquidity":{"liquid":35000,"illiquid":0,"ratio":1},"correlation":{"sp500":0.85,"nasdaq":0.92},"stressTests":[{"scenario":"Global Market Crash","impactPercentage":-20,"impactValue":-7000,"description":"Equities drop 20%, crypto drops 30%"},{"scenario":"Technology Sector Crash","impactPercentage":-12.857142857142856,"impactValue":-4500,"description":"Tech stocks decline 30%"},{"scenario":"Crypto Market Crash","impactPercentage":-9.142857142857142,"impactValue":-3200,"description":"Cryptocurrencies decline 40%"}],"insights":["Your portfolio has strong exposure to technology growth stocks.","Your wealth structure may experience higher volatility during technology sector downturns."]}

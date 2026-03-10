@@ -1,0 +1,222 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K4:54:23 PM [express] serving on port 5000
+4:54:30 PM [express] GET /api/analytics 200 in 3ms :: {"totalValue":35000,"healthScore":66,"diversificationScore":67,"liquidityScore":100,"riskExposureScore":69,"composition":{"byAssetClass":{"stock":15000,"crypto":8000,"cash":12000},"bySector":{"Technology":15000,"Cryptocurrency":8000,"Cash":12000}},"liquidity":{"liquid":35000,"illiquid":0,"ratio":1},"correlation":{"sp500":0.85,"nasdaq":0.92},"stressTests":[{"scenario":"Global Market Crash","impactPercentage":-20,"impactValue":-7000,"description":"Equities drop 20%, crypto drops 30%"},{"scenario":"Technology Sector Crash","impactPercentage":-12.857142857142856,"impactValue":-4500,"description":"Tech stocks decline 30%"},{"scenario":"Crypto Market Crash","impactPercentage":-9.142857142857142,"impactValue":-3200,"description":"Cryptocurrencies decline 40%"}],"insights":["Your portfolio has strong exposure to technology growth stocks.","Your wealth structure may experience higher volatility during technology sector downturns."]}
+4:54:32 PM [express] GET /api/analytics 200 in 1ms :: {"totalValue":35000,"healthScore":66,"diversificationScore":67,"liquidityScore":100,"riskExposureScore":69,"composition":{"byAssetClass":{"stock":15000,"crypto":8000,"cash":12000},"bySector":{"Technology":15000,"Cryptocurrency":8000,"Cash":12000}},"liquidity":{"liquid":35000,"illiquid":0,"ratio":1},"correlation":{"sp500":0.85,"nasdaq":0.92},"stressTests":[{"scenario":"Global Market Crash","impactPercentage":-20,"impactValue":-7000,"description":"Equities drop 20%, crypto drops 30%"},{"scenario":"Technology Sector Crash","impactPercentage":-12.857142857142856,"impactValue":-4500,"description":"Tech stocks decline 30%"},{"scenario":"Crypto Market Crash","impactPercentage":-9.142857142857142,"impactValue":-3200,"description":"Cryptocurrencies decline 40%"}],"insights":["Your portfolio has strong exposure to technology growth stocks.","Your wealth structure may experience higher volatility during technology sector downturns."]}
+4:55:08 PM [express] GET /api/assets 200 in 10ms :: [{"id":1,"symbol":"AAPL","name":"Apple Inc.","assetType":"stock","value":"15000","quantity":"85","sector":"Technology"},{"id":2,"symbol":"BTC-USD","name":"Bitcoin","assetType":"crypto","value":"8000","quantity":"0.12","sector":"Cryptocurrency"},{"id":3,"symbol":"","name":"High Yield Savings","assetType":"cash","value":"12000","quantity":"1","sector":"Cash"}]
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:97:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:56:55 PM [express] GET /api/market/search 500 in 55ms :: {"message":"Search failed"}
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:97:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:56:55 PM [express] GET /api/market/search 500 in 4ms :: {"message":"Search failed"}
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:97:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:56:56 PM [express] GET /api/market/search 500 in 2ms :: {"message":"Search failed"}
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:97:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:57:04 PM [express] GET /api/market/search 500 in 2ms :: {"message":"Search failed"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:00:46 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/assets/AddAssetModal.tsx, /src/index.css[22m
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:97:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+5:00:47 PM [express] GET /api/market/search 500 in 2ms :: {"message":"Search failed"}

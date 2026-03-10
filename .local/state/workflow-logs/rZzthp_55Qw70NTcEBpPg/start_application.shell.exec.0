@@ -1,0 +1,407 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K5:01:26 PM [express] serving on port 5000
+5:01:28 PM [express] GET /api/analytics 304 in 3ms :: {"totalValue":35000,"healthScore":66,"diversificationScore":67,"liquidityScore":100,"riskExposureScore":69,"composition":{"byAssetClass":{"stock":15000,"crypto":8000,"cash":12000},"bySector":{"Technology":15000,"Cryptocurrency":8000,"Cash":12000}},"liquidity":{"liquid":35000,"illiquid":0,"ratio":1},"correlation":{"sp500":0.85,"nasdaq":0.92},"stressTests":[{"scenario":"Global Market Crash","impactPercentage":-20,"impactValue":-7000,"description":"Equities drop 20%, crypto drops 30%"},{"scenario":"Technology Sector Crash","impactPercentage":-12.857142857142856,"impactValue":-4500,"description":"Tech stocks decline 30%"},{"scenario":"Crypto Market Crash","impactPercentage":-9.142857142857142,"impactValue":-3200,"description":"Cryptocurrencies decline 40%"}],"insights":["Your portfolio has strong exposure to technology growth stocks.","Your wealth structure may experience higher volatility during technology sector downturns."]}
+5:01:46 PM [express] GET /api/assets 304 in 11ms :: [{"id":1,"symbol":"AAPL","name":"Apple Inc.","assetType":"stock","value":"15000","quantity":"85","sector":"Technology"},{"id":2,"symbol":"BTC-USD","name":"Bitcoin","assetType":"crypto","value":"8000","quantity":"0.12","sector":"Cryptocurrency"},{"id":3,"symbol":"","name":"High Yield Savings","assetType":"cash","value":"12000","quantity":"1","sector":"Cash"}]
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:117:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+5:01:51 PM [express] GET /api/market/search 200 in 6ms :: []
+5:02:56 PM [express] POST /api/assets 201 in 174ms :: {"id":4,"symbol":null,"name":"TSLA","assetType":"stock","value":"1","quantity":"5","sector":null}
+5:02:56 PM [express] GET /api/assets 200 in 2ms :: [{"id":1,"symbol":"AAPL","name":"Apple Inc.","assetType":"stock","value":"15000","quantity":"85","sector":"Technology"},{"id":2,"symbol":"BTC-USD","name":"Bitcoin","assetType":"crypto","value":"8000","quantity":"0.12","sector":"Cryptocurrency"},{"id":3,"symbol":"","name":"High Yield Savings","assetType":"cash","value":"12000","quantity":"1","sector":"Cash"},{"id":4,"symbol":null,"name":"TSLA","assetType":"stock","value":"1","quantity":"5","sector":null}]
+5:03:01 PM [express] DELETE /api/assets/4 204 in 5ms
+5:03:01 PM [express] GET /api/assets 200 in 2ms :: [{"id":1,"symbol":"AAPL","name":"Apple Inc.","assetType":"stock","value":"15000","quantity":"85","sector":"Technology"},{"id":2,"symbol":"BTC-USD","name":"Bitcoin","assetType":"crypto","value":"8000","quantity":"0.12","sector":"Cryptocurrency"},{"id":3,"symbol":"","name":"High Yield Savings","assetType":"cash","value":"12000","quantity":"1","sector":"Cash"}]
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:117:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+5:03:08 PM [express] GET /api/market/search 200 in 1ms :: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:03:44 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/assets/AddAssetModal.tsx, /src/index.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:03:47 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/assets/AddAssetModal.tsx, /src/index.css[22m [33m(x2)[39m
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:117:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+5:09:16 PM [express] GET /api/market/search 200 in 2ms :: []
+Search failed: Error: Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.
+    at YahooFinance.search [90m(file:///home/runner/workspace/[39mnode_modules/[4myahoo-finance2[24m/esm/src/createYahooFinance.js:155:19[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/routes.ts:117:42[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+5:09:24 PM [express] GET /api/market/search 200 in 1ms :: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:09:53 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/assets/AddAssetModal.tsx, /src/index.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:10:20 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/assets/AddAssetModal.tsx, /src/index.css[22m [33m(x4)[39m
+[replit-cartographer] Error processing /home/runner/workspace/client/src/components/assets/AddAssetModal.tsx: SyntaxError: Unexpected token, expected "..." (361:18)
+    at toParseError [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parse-error.ts:95:45[90m)[39m
+    at raise [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/tokenizer/index.ts:1503:19[90m)[39m
+    at unexpected [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/tokenizer/index.ts:1543:16[90m)[39m
+    at expect [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/util.ts:157:12[90m)[39m
+    at jsxParseAttribute [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:406:14[90m)[39m
+    at jsxParseOpeningElementAfterName [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:440:30[90m)[39m
+    at jsxParseOpeningElementAfterName [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/typescript/index.ts:4171:20[90m)[39m
+    at jsxParseOpeningElementAt [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:430:19[90m)[39m
+    at jsxParseElementAt [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:470:35[90m)[39m
+    at jsxParseElementAt [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:483:34[90m)[39m
+    at jsxParseElementAt [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:483:34[90m)[39m
+    at jsxParseElementAt [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:483:34[90m)[39m
+    at jsxParseElementAt [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:483:34[90m)[39m
+    at jsxParseElement [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:559:19[90m)[39m
+    at parseExprAtom [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:573:21[90m)[39m
+    at parseExprSubscripts [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:734:23[90m)[39m
+    at parseUpdate [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:713:21[90m)[39m
+    at parseMaybeUnary [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:675:23[90m)[39m
+    at parseMaybeUnary [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/typescript/index.ts:3855:20[90m)[39m
+    at parseMaybeUnaryOrPrivate [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:409:14[90m)[39m
+    at parseExprOps [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:421:23[90m)[39m
+    at parseMaybeConditional [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:376:23[90m)[39m
+    at parseMaybeAssign [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:301:21[90m)[39m
+    at fn [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/typescript/index.ts:3708:23[90m)[39m
+    at tryParse [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/util.ts:174:20[90m)[39m
+    at parseMaybeAssign [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/typescript/index.ts:3707:20[90m)[39m
+    at callback [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:257:12[90m)[39m
+    at allowInAnd [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:3192:12[90m)[39m
+    at parseMaybeAssignAllowIn [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:256:17[90m)[39m
+    at parseMaybeAssignAllowInOrVoidPattern [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:3306:17[90m)[39m
+    at parseParenAndDistinguishExpression [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:1813:16[90m)[39m
+    at parseExprAtom [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:1162:21[90m)[39m
+    at parseExprAtom [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/jsx/index.ts:583:22[90m)[39m
+    at parseExprSubscripts [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:734:23[90m)[39m
+    at parseUpdate [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:713:21[90m)[39m
+    at parseMaybeUnary [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:675:23[90m)[39m
+    at parseMaybeUnary [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/typescript/index.ts:3855:20[90m)[39m
+    at parseMaybeUnaryOrPrivate [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:409:14[90m)[39m
+    at parseExprOps [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:421:23[90m)[39m
+    at parseMaybeConditional [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:376:23[90m)[39m
+    at parseMaybeAssign [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:301:21[90m)[39m
+    at parseMaybeAssign [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/typescript/index.ts:3727:22[90m)[39m
+    at parseExpressionBase [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:226:23[90m)[39m
+    at callback [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:217:39[90m)[39m
+    at allowInAnd [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:3187:16[90m)[39m
+    at parseExpression [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/expression.ts:217:17[90m)[39m
+    at parseReturnStatement [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/statement.ts:1110:28[90m)[39m
+    at parseStatementContent [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/statement.ts:538:21[90m)[39m
+    at parseStatementContent [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/plugins/typescript/index.ts:3185:20[90m)[39m
+    at parseStatementLike [90m(/home/runner/workspace/[39mnode_modules/[4m@babel/parser[24m/src/parser/statement.ts:477:17[90m)[39m {
+  code: [32m'BABEL_PARSER_SYNTAX_ERROR'[39m,
+  reasonCode: [32m'UnexpectedToken'[39m,
+  loc: Position { line: [33m361[39m, column: [33m18[39m, index: [33m13720[39m },
+  pos: [33m13720[39m,
+  syntaxPlugin: [90mundefined[39m
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:10:21 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: /home/runner/workspace/client/src/components/assets/AddAssetModal.tsx: Unexpected token, expected "..." (361:18)
+
+[0m [90m 359 |[31m               {[90m/* disabled={[31m
+ [90m 360 |[31m [90m                createAsset.isPending || (mode === "market" && !selectedSymbol)[31m
+[31m[1m>[22m[31m[90m 361 |[31m [90m              } */[31m}
+ [90m     |[31m                   [31m[1m^[22m[31m
+ [90m 362 |[31m               className[33m=[31m[32m"px-5 py-2.5 rounded-xl font-medium bg-primary text-primary-foreground shadow-[0_0_15px_rgba(0,180,216,0.3)] hover:shadow-[0_0_25px_rgba(0,180,216,0.5)] disabled:opacity-50 disabled:cursor-not-allowed transition-all"[31m
+ [90m 363 |[31m             [33m>[31m
+ [90m 364 |[31m               {createAsset[33m.[31misPending [33m?[31m [32m"Adding..."[31m [33m:[31m [32m"Add Asset"[31m}[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36m/home/runner/workspace/client/src/components/assets/AddAssetModal.tsx[39m:361:18
+[33m  359 |                {/* disabled={
+  360 |                  createAsset.isPending || (mode === "market" && !selectedSymbol)
+  361 |                } */}
+      |                    ^
+  362 |                className="px-5 py-2.5 rounded-xl font-medium bg-primary text-primary-foreground shadow-[0_0_15px_rgba(...
+  363 |              >[39m
+      at toParseError (/home/runner/workspace/node_modules/@babel/parser/src/parse-error.ts:95:45)
+      at raise (/home/runner/workspace/node_modules/@babel/parser/src/tokenizer/index.ts:1503:19)
+      at unexpected (/home/runner/workspace/node_modules/@babel/parser/src/tokenizer/index.ts:1543:16)
+      at expect (/home/runner/workspace/node_modules/@babel/parser/src/parser/util.ts:157:12)
+      at jsxParseAttribute (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:406:14)
+      at jsxParseOpeningElementAfterName (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:440:30)
+      at jsxParseOpeningElementAfterName (/home/runner/workspace/node_modules/@babel/parser/src/plugins/typescript/index.ts:4171:20)
+      at jsxParseOpeningElementAt (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:430:19)
+      at jsxParseElementAt (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:470:35)
+      at jsxParseElementAt (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:483:34)
+      at jsxParseElementAt (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:483:34)
+      at jsxParseElementAt (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:483:34)
+      at jsxParseElementAt (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:483:34)
+      at jsxParseElement (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:559:19)
+      at parseExprAtom (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:573:21)
+      at parseExprSubscripts (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:734:23)
+      at parseUpdate (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:713:21)
+      at parseMaybeUnary (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:675:23)
+      at parseMaybeUnary (/home/runner/workspace/node_modules/@babel/parser/src/plugins/typescript/index.ts:3855:20)
+      at parseMaybeUnaryOrPrivate (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:409:14)
+      at parseExprOps (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:421:23)
+      at parseMaybeConditional (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:376:23)
+      at parseMaybeAssign (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:301:21)
+      at fn (/home/runner/workspace/node_modules/@babel/parser/src/plugins/typescript/index.ts:3708:23)
+      at tryParse (/home/runner/workspace/node_modules/@babel/parser/src/parser/util.ts:174:20)
+      at parseMaybeAssign (/home/runner/workspace/node_modules/@babel/parser/src/plugins/typescript/index.ts:3707:20)
+      at callback (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:257:12)
+      at allowInAnd (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:3192:12)
+      at parseMaybeAssignAllowIn (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:256:17)
+      at parseMaybeAssignAllowInOrVoidPattern (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:3306:17)
+      at parseParenAndDistinguishExpression (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:1813:16)
+      at parseExprAtom (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:1162:21)
+      at parseExprAtom (/home/runner/workspace/node_modules/@babel/parser/src/plugins/jsx/index.ts:583:22)
+      at parseExprSubscripts (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:734:23)
+      at parseUpdate (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:713:21)
+      at parseMaybeUnary (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:675:23)
+      at parseMaybeUnary (/home/runner/workspace/node_modules/@babel/parser/src/plugins/typescript/index.ts:3855:20)
+      at parseMaybeUnaryOrPrivate (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:409:14)
+      at parseExprOps (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:421:23)
+      at parseMaybeConditional (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:376:23)
+      at parseMaybeAssign (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:301:21)
+      at parseMaybeAssign (/home/runner/workspace/node_modules/@babel/parser/src/plugins/typescript/index.ts:3727:22)
+      at parseExpressionBase (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:226:23)
+      at callback (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:217:39)
+      at allowInAnd (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:3187:16)
+      at parseExpression (/home/runner/workspace/node_modules/@babel/parser/src/parser/expression.ts:217:17)
+      at parseReturnStatement (/home/runner/workspace/node_modules/@babel/parser/src/parser/statement.ts:1110:28)
+      at parseStatementContent (/home/runner/workspace/node_modules/@babel/parser/src/parser/statement.ts:538:21)
+      at parseStatementContent (/home/runner/workspace/node_modules/@babel/parser/src/plugins/typescript/index.ts:3185:20)
+      at parseStatementLike (/home/runner/workspace/node_modules/@babel/parser/src/parser/statement.ts:477:17)
+[1G[0K⠙[1G[0K
