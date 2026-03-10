@@ -45,8 +45,6 @@ By transforming fragmented financial data into clear, actionable insights, Avent
 
 ## Tech Stack
 
-> _Update this section with your actual stack._
-
 - **Frontend:** React, TypeScript, Tailwind CSS
 - **Backend:** Node.js
 - **Data:** Yahoo Finance API
