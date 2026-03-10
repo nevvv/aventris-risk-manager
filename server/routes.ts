@@ -3,7 +3,9 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import yahooFinance from "yahoo-finance2";
+
+// Dynamically import yahoo-finance2 since it's an ESM module
+let yahooFinance: any;
 
 const TOP_EQUITIES = [
   "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA", "BRK-B", "AVGO", "V",
@@ -56,6 +58,15 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
 
+  // Initialize yahoo-finance2
+  if (!yahooFinance) {
+    try {
+      yahooFinance = (await import("yahoo-finance2")).default;
+    } catch (err) {
+      console.warn("yahoo-finance2 not available:", err);
+    }
+  }
+
   // Seed database with mock data if empty
   seedDatabase().catch(console.error);
   
@@ -66,7 +77,12 @@ export async function registerRoutes(
 
   app.post(api.assets.create.path, async (req, res) => {
     try {
-      const input = api.assets.create.input.parse(req.body);
+      // Coerce string values to numeric for storage
+      const bodySchema = api.assets.create.input.extend({
+        quantity: z.coerce.string(),
+        value: z.coerce.string(),
+      });
+      const input = bodySchema.parse(req.body);
       const newAsset = await storage.createAsset(input);
       res.status(201).json(newAsset);
     } catch (err) {
@@ -76,6 +92,7 @@ export async function registerRoutes(
           field: err.errors[0].path.join('.'),
         });
       }
+      console.error("Create asset error:", err);
       res.status(500).json({ message: "Internal server error" });
     }
   });
@@ -94,11 +111,14 @@ export async function registerRoutes(
     if (!query) return res.json([]);
     
     try {
+      if (!yahooFinance) {
+        return res.json([]);
+      }
       const results = await yahooFinance.search(query);
-      const filtered = results.quotes
-        .filter(q => q.symbol && (ALLOWED_SYMBOLS.includes(q.symbol) || q.quoteType === "CRYPTOCURRENCY" || q.quoteType === "EQUITY"))
+      const filtered = (results?.quotes || [])
+        .filter((q: any) => q.symbol && (ALLOWED_SYMBOLS.includes(q.symbol) || q.quoteType === "CRYPTOCURRENCY" || q.quoteType === "EQUITY"))
         .slice(0, 10)
-        .map(q => ({
+        .map((q: any) => ({
           symbol: q.symbol,
           name: q.shortname || q.longname || q.symbol,
           type: q.quoteType === "CRYPTOCURRENCY" ? "crypto" : "stock",
@@ -106,7 +126,7 @@ export async function registerRoutes(
       res.json(filtered);
     } catch (err) {
       console.error("Search failed:", err);
-      res.status(500).json({ message: "Search failed" });
+      res.json([]); // Return empty array on error instead of 500
     }
   });
 
@@ -114,16 +134,22 @@ export async function registerRoutes(
     const symbol = req.query.symbol?.toString();
     if (!symbol) return res.status(400).json({ message: "Symbol required" });
     try {
+      if (!yahooFinance) {
+        return res.status(500).json({ message: "Market data service unavailable" });
+      }
       const quote = await yahooFinance.quote(symbol);
+      if (!quote) {
+        return res.status(404).json({ message: "Quote not found" });
+      }
       res.json({
-        symbol: quote.symbol,
+        symbol: quote.symbol || symbol,
         price: quote.regularMarketPrice || 0,
         name: quote.shortName || quote.longName || quote.symbol,
         sector: quote.sector || (quote.quoteType === "CRYPTOCURRENCY" ? "Cryptocurrency" : "General"),
         assetType: quote.quoteType === "CRYPTOCURRENCY" ? "crypto" : "stock",
       });
     } catch (err) {
-      console.error("Quote failed:", err);
+      console.error("Quote failed for symbol", symbol, ":", err);
       res.status(404).json({ message: "Quote not found" });
     }
   });

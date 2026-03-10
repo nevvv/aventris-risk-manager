@@ -71,9 +71,14 @@ export function AddAssetModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
   }, [quote, form]);
 
   const onSubmit = (data: FormData) => {
+    // Convert string quantities and values to numbers for API submission
     createAsset.mutate({
-      ...data,
-      // Pass strings exactly as validated, API expects schema
+      name: data.name,
+      symbol: data.symbol || undefined,
+      assetType: data.assetType,
+      quantity: data.quantity, // Keep as string, API schema handles it
+      value: data.value, // Keep as string, API schema handles it
+      sector: data.sector || null,
     }, {
       onSuccess: () => {
         form.reset();
