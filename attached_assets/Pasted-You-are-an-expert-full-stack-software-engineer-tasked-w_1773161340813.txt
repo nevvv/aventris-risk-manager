@@ -1,0 +1,196 @@
+You are an expert full-stack software engineer tasked with building the MVP of a fintech web application called Aventris – Wealth Wellness Hub.
+
+Your goal is to design and implement a working prototype that satisfies the requirements of a fintech hackathon problem statement.
+
+The application should be clean, modern, and focused on financial risk intelligence and wealth wellness analytics.
+
+The system must transform fragmented financial asset data into a clear financial health dashboard.
+
+This product is NOT a trading platform, NOT a robo advisor, and NOT a stock recommendation engine.
+
+Instead, it is a risk transparency and financial wellness analytics platform.
+
+Aventris is a Wealth Wellness Hub that aggregates a user’s financial assets and analyzes their financial health using portfolio analytics, diversification metrics, liquidity analysis, and stress testing.
+
+The system should help users understand:
+
+• how diversified their wealth is
+• their exposure to market indices
+• their liquidity strength
+• potential downside in stress scenarios
+• the structural resilience of their wealth
+
+The product should translate complex financial metrics into clear, intuitive insights.
+
+Users currently manage wealth across fragmented platforms such as:
+
+• brokerage portfolios
+• crypto wallets
+• bank savings
+• private investments
+
+Because of fragmentation, investors cannot clearly see:
+
+• their real diversification
+• their macro exposure
+• their liquidity strength
+• their overall financial health
+
+Aventris solves this by creating a Wealth Wallet + Financial Health Dashboard.
+
+Focus only on the Minimum Viable Product.
+
+Do not overengineer.
+
+⸻
+
+1. Wealth Wallet (Asset Aggregation)
+
+Users should be able to input their assets.
+
+For the MVP, use manual input rather than broker integrations.
+
+Users should be able to add:
+
+Asset Name
+Asset Type (Stock / ETF / Crypto / Cash / Private Asset)
+Value
+Quantity
+Sector (for stocks/ETFs)
+
+Example assets:
+
+AAPL
+NVDA
+BTC
+Cash savings
+Real estate value
+
+Store portfolio data in a simple database or in session memory.
+
+2. Wealth Composition Visualization
+
+Display visual breakdowns of the user’s wealth.
+
+Charts should include:
+
+• Asset allocation pie chart
+• Sector distribution
+• Asset class breakdown
+
+Use a clean dashboard layout.
+
+3. Wealth Health Score
+
+Calculate a single score representing overall financial wellness.
+
+Score range: 0–100
+
+The score should combine:
+
+Diversification Score
+Liquidity Score
+Risk Exposure Score
+
+Example output:
+
+Wealth Health Score: 64 / 100
+
+Provide simple explanations.
+
+Example:
+
+“Your portfolio shows moderate diversification but high exposure to technology equities.”
+
+⸻
+
+4. Diversification Analysis
+
+Compute diversification metrics based on asset allocation.
+
+Indicators include:
+
+• concentration by sector
+• concentration by asset class
+• distribution across holdings
+
+Create a Diversification Score (0–100).
+
+Example explanation:
+
+“78% of your portfolio is concentrated in technology equities.”
+
+⸻
+
+5. Correlation and Market Exposure
+
+For stock and ETF assets, calculate exposure to major indices.
+
+Use historical price data if possible.
+
+Otherwise simulate correlations.
+
+Show:
+
+Correlation to S&P 500
+Correlation to Nasdaq
+
+Example output:
+
+“Your portfolio is highly correlated with the Nasdaq (0.89).”
+
+⸻
+
+6. Liquidity Analysis
+
+Determine how much of the user’s wealth is liquid.
+
+Liquid assets:
+
+• cash
+• stocks
+• ETFs
+• crypto
+
+Illiquid assets:
+
+• real estate
+• private investments
+
+Calculate:
+
+Liquidity Ratio
+
+Example:
+
+Liquid Assets: $85,000
+Total Wealth: $120,000
+Liquidity Ratio: 71%
+
+Explain in simple terms.
+
+⸻
+
+7. Stress Test Simulator
+
+Allow users to simulate market events.
+
+Example scenarios:
+
+Scenario 1 – Global Market Crash (-20% equities)
+
+Scenario 2 – Technology Sector Crash (-30% tech stocks)
+
+Scenario 3 – Crypto Market Crash (-40%)
+
+Estimate potential portfolio impact.
+
+Example output:
+
+“Under a technology sector crash scenario, your portfolio value would decline approximately 24%.”
+
+⸻
+
+8. Risk Exposure Insights
+
+Generate readable insights.

@@ -1,0 +1,193 @@
+Examples:
+“You appear diversified by number of assets, but most holdings belong to the same market sector.”
+
+“Your portfolio has strong exposure to technology growth stocks.”
+
+“Your wealth structure may experience higher volatility during technology sector downturns.”
+
+Avoid giving stock recommendations.
+
+Focus only on risk awareness.
+
+⸻
+
+Dashboard Interface
+Create a modern dashboard containing:
+
+Wealth Health Score (main display)
+
+Portfolio Composition Charts
+
+Risk Exposure Analysis
+
+Diversification Score
+
+Liquidity Score
+
+Stress Test Simulator
+
+Use clear financial UI design.
+
+⸻
+
+Technical Stack
+
+Choose a stack suitable for rapid development.
+
+Recommended stack:
+
+Frontend
+React + Tailwind
+
+Backend
+Python (FastAPI or Flask)
+
+Data analysis
+Python libraries
+
+pandas
+numpy
+yfinance (optional)
+
+Charts
+Chart.js or Recharts
+
+⸻
+
+Design Principles
+
+The interface must be:
+
+Clean
+Minimal
+Professional
+Financial-grade
+
+Avoid clutter.
+
+Focus on clarity.
+
+⸻
+
+User Experience Flow
+
+User visits site
+
+User creates account or enters portfolio
+
+User adds assets
+
+System analyzes portfolio
+
+Dashboard displays:
+
+Wealth Health Score
+Risk exposure insights
+Diversification analysis
+Stress test results
+
+⸻
+
+Output Requirements
+
+Generate:
+
+Full project structure
+
+Frontend code
+
+Backend analytics logic
+
+Portfolio analysis functions
+
+Dashboard UI
+
+Ensure the application can run locally.
+
+⸻
+
+Key Constraints
+
+Do NOT:
+
+Provide stock recommendations
+
+Provide trading functionality
+
+Require broker APIs
+
+Use overly complex machine learning models
+
+The MVP should focus on:
+
+Portfolio analytics
+Financial wellness insights
+Risk transparency
+
+⸻
+
+End Goal
+
+The finished application should demonstrate how fragmented financial data can be transformed into actionable financial wellness intelligence.
+
+The system should clearly show users:
+
+“How healthy and resilient their wealth structure is.”
+
+portfolio inputs use real financial assets instead of hard-coded mock values.
+
+Implement integration with Yahoo Finance using the Python yfinance library.
+
+Requirements:
+1. Create predefined asset universes.
+
+For equities, create a list of the top 50 large-cap companies by market capitalization (e.g., AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, etc.).
+
+For crypto, include the top 15 cryptocurrencies using Yahoo Finance tickers (e.g., BTC-USD, ETH-USD, SOL-USD, etc.).
+2. Replace manual ticker text input with a dropdown selector populated from these lists.
+3. When a user selects a ticker, use yfinance to fetch historical price data.
+Example Python code structure:
+import yfinance as yf
+
+data = yf.download("AAPL", period="1y")
+4. Use the historical price data to compute portfolio analytics including:
+
+• asset returns
+• correlation matrix
+• correlation to major indices
+• portfolio beta
+• volatility
+5. Fetch index data for:
+S&P 500 → ^GSPC
+NASDAQ → ^IXIC
+Dow Jones → ^DJI
+6. Cache price data where possible to avoid repeated API calls.
+7. Ensure the system works even if a data fetch fails by returning a safe fallback message.
+8. Structure the backend so that the asset universe can easily be expanded later.
+
+Goal:
+
+The app should analyze real market assets instead of hardcoded data so that portfolio analytics reflect real financial behavior.
+
+Also, include another feature to pull company metadata:
+ticker.info["sector"]
+ticker.info["industry"]
+ticker.info["marketCap"]
+
+This will allow your app to automatically compute:
+
+• sector concentration
+• diversification metrics
+
+Which is perfect for your Wealth Health Score.
+
+Another thing to add is:
+Instead of typing tickers manually, add search with autocomplete.
+
+Example UX:
+
+User types: AAPL
+
+Dropdown appears:
+
+Apple Inc. (AAPL)
