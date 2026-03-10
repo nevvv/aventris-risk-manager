@@ -1,18 +1,18 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, numeric } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+export const assets = pgTable("assets", {
+  id: serial("id").primaryKey(),
+  symbol: text("symbol"),
+  name: text("name").notNull(),
+  assetType: text("asset_type").notNull(), // 'stock', 'etf', 'crypto', 'cash', 'real_estate', 'private'
+  value: numeric("value").notNull(), // total value of this asset position
+  quantity: numeric("quantity").notNull(),
+  sector: text("sector"), // e.g. Technology, Healthcare (optional)
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
+export const insertAssetSchema = createInsertSchema(assets).omit({ id: true });
 
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export type Asset = typeof assets.$inferSelect;
+export type InsertAsset = z.infer<typeof insertAssetSchema>;
